@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+body {
+  background-color: #f4f1ea;
+  color: #000000;
+  background-image: radial-gradient(#d1cdb7 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+@keyframes floatAnimal {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-animal {
+  animation: floatAnimal 4s ease-in-out infinite;
+}
+.float-animal {
+  animation: floatAnimal 5s ease-in-out infinite;
+}
+
+@keyframes floatAnimal {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.card-glow:hover {
+  box-shadow:
+    0 0 20px rgba(34,197,94,0.3),
+    0 0 40px rgba(34,197,94,0.2);
+}
