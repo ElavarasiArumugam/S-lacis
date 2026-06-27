@@ -8,7 +8,7 @@ export default function AlertsPage() {
   useEffect(() => {
     const farmId = localStorage.getItem("farm_id");
 
-    fetch(`http://localhost:8000/api/v1/alerts/${farmId}`)
+    fetch(`https://s-lacis.onrender.com/api/v1/alerts/${farmId}`)
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch(console.error);

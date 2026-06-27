@@ -6,7 +6,7 @@ export default function ProductionPage() {
   const [records, setRecords] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/v1/production/")
+    fetch("https://s-lacis.onrender.com/api/v1/production/")
       .then((res) => res.json())
       .then((data) => setRecords(data))
       .catch(console.error);

@@ -11,7 +11,7 @@ export default function AnimalsPage() {
 
     if (!farmId) return;
 
-    fetch(`http://localhost:8000/api/v1/animals/farm/${farmId}`)
+    fetch(`https://s-lacis.onrender.com/api/v1/animals/farm/${farmId}`)
       .then((res) => res.json())
       .then((data) => setAnimals(data))
       .catch(console.error);

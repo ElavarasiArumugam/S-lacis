@@ -14,7 +14,7 @@ export default function VaccinationPage() {
     const farmId = localStorage.getItem("farm_id");
 
     fetch(
-      `http://localhost:8000/api/v1/animals/farm/${farmId}`
+      `https://s-lacis.onrender.com/api/v1/animals/farm/${farmId}`
     )
       .then((res) => res.json())
       .then((data) => setAnimals(data))
@@ -24,7 +24,7 @@ export default function VaccinationPage() {
   const saveVaccine = async () => {
     try {
       await fetch(
-        `http://localhost:8000/api/v1/animals/vaccinate?animal_id=${animalId}&vaccine_name=${vaccine}&next_date=${nextDate}`,
+        `https://s-lacis.onrender.com/api/v1/animals/vaccinate?animal_id=${animalId}&vaccine_name=${vaccine}&next_date=${nextDate}`,
         {
           method: "POST",
         }

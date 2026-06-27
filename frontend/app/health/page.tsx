@@ -13,7 +13,7 @@ export default function HealthPage() {
   useEffect(() => {
     const farmId = localStorage.getItem("farm_id");
 
-    fetch(`http://localhost:8000/api/v1/animals/farm/${farmId}`)
+    fetch(`https://s-lacis.onrender.com/api/v1/animals/farm/${farmId}`)
       .then((res) => res.json())
       .then((data) => setAnimals(data))
       .catch(console.error);
@@ -27,7 +27,7 @@ export default function HealthPage() {
 
     try {
       await fetch(
-        "http://localhost:8000/api/v1/health/add",
+        "https://s-lacis.onrender.com/api/v1/health/add",
         {
           method: "POST",
           headers: {

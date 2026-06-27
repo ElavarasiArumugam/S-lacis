@@ -18,7 +18,7 @@ export default function AnalyticsPage() {
       localStorage.getItem("farm_id");
 
     fetch(
-      `http://localhost:8000/api/v1/analytics/${farmId}`
+      `https://s-lacis.onrender.com/api/v1/analytics/${farmId}`
     )
       .then((res) => res.json())
       .then((data) => setStats(data))

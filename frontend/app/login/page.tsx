@@ -21,7 +21,7 @@ export default function Login() {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
 
-      const response = await fetch("http://localhost:8000/api/v1/auth/login", {
+      const response = await fetch("https://s-lacis.onrender.com/api/v1/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

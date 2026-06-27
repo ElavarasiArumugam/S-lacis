@@ -19,7 +19,7 @@ export default function AnimalDetails() {
     async function fetchAnimal() {
       try {
         const response = await fetch(
-          `http://localhost:8000/api/v1/animals/${id}`
+          `https://s-lacis.onrender.com/api/v1/animals/${id}`
         );
 
         const data = await response.json();

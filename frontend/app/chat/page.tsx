@@ -56,7 +56,7 @@ export default function ChatPage() {
     setError(null);
 
     try {
-      const response = await fetch("http://localhost:8000/api/v1/chat/message", {
+      const response = await fetch("https://s-lacis.onrender.com/api/v1/chat/message", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
