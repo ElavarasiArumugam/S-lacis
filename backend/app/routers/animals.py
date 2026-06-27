@@ -45,7 +45,17 @@ def update_breeding(
     return {"message": "Breeding record updated"}
 @router.post("/register")
 def register_animal(animal: AnimalCreate, db: Session = Depends(get_db)):
-    new_animal = Animal(**animal.dict())
+    new_animal = Animal(
+    farm_id=animal.farm_id,
+    animal_id=animal.animal_id,
+    animal_type=animal.animal_type,
+    breed=animal.breed,
+    age=animal.age,
+    weight=animal.weight,
+    gender=animal.gender,
+    pregnancy_status=animal.pregnancy_status,
+    last_vaccination=animal.last_vaccination
+)
     db.add(new_animal)
     db.commit()
     db.refresh(new_animal)
