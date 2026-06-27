@@ -118,9 +118,9 @@ def vaccinate(
     db: Session = Depends(get_db)
 ):
 
-    animal = db.query(Animal)\
-        .filter(Animal.id == animal_id)\
-        .first()
+    animal = db.query(Animal).filter(
+        Animal.id == animal_id
+    ).first()
 
     if not animal:
         raise HTTPException(
@@ -128,16 +128,21 @@ def vaccinate(
             detail="Animal not found"
         )
 
+    # Update vaccination info
     animal.vaccine_name = vaccine_name
-    animal.last_vaccination = "Completed"
+    animal.last_vaccination = vaccine_name
     animal.next_vaccination = next_date
+
+    # Vaccinated animals are assumed healthy
+    animal.status = "Healthy"
+    animal.risk_level = "Low"
 
     db.commit()
 
     return {
-        "status":"success"
+        "status": "success",
+        "message": "Vaccination updated successfully"
     }
-
 
 @router.get("/farm/{farm_id}")
 def farm_animals(

@@ -130,28 +130,51 @@ export default function AlertsPage() {
 
                       {/* Details */}
 
-                      <div className="space-y-3 text-gray-700">
-                        <p>
-                          <span className="font-bold">
-                            Animal ID:
-                          </span>{" "}
-                          {a.animal_id}
-                        </p>
+                   <div className="space-y-3 text-gray-700">
 
-                        <p>
-                          <span className="font-bold">
-                            Health Status:
-                          </span>{" "}
-                          {a.status}
-                        </p>
+  <p>
+    <span className="font-bold">
+      Animal ID:
+    </span>{" "}
+    {a.animal_id}
+  </p>
 
-                        <p>
-                          <span className="font-bold">
-                            Risk Level:
-                          </span>{" "}
-                          {a.risk_level}
-                        </p>
-                      </div>
+  <p>
+    <span className="font-bold">
+      Disease:
+    </span>{" "}
+    {a.disease}
+  </p>
+
+  <p>
+    <span className="font-bold">
+      Symptoms:
+    </span>{" "}
+    {a.symptoms}
+  </p>
+
+  <p>
+    <span className="font-bold">
+      Treatment:
+    </span>{" "}
+    {a.treatment}
+  </p>
+
+  <p>
+    <span className="font-bold">
+      Health Status:
+    </span>{" "}
+    {a.status}
+  </p>
+
+  <p>
+    <span className="font-bold">
+      Risk Level:
+    </span>{" "}
+    {a.risk_level}
+  </p>
+
+</div>
 
                       {/* Footer */}
 
