@@ -21,9 +21,33 @@ export default function AnimalsPage() {
     <div className="min-h-screen bg-[#f4f1ea] p-8">
       <div className="max-w-6xl mx-auto">
 
-        <h1 className="text-4xl font-black mb-8">
-          Animal Registry
-        </h1>
+       <div className="flex items-center justify-between mb-8">
+  <h1 className="text-4xl font-black">
+    Animal Registry
+  </h1>
+
+  <Link href="/animals/register">
+    <button
+      className="
+      bg-emerald-400
+      hover:bg-emerald-300
+      border-4
+      border-black
+      px-6
+      py-3
+      rounded-xl
+      font-black
+      shadow-[6px_6px_0px_rgba(0,0,0,1)]
+      hover:translate-x-[2px]
+      hover:translate-y-[2px]
+      hover:shadow-[4px_4px_0px_rgba(0,0,0,1)]
+      transition-all
+      "
+    >
+      + Add Animal
+    </button>
+  </Link>
+</div>
 
         <div className="grid md:grid-cols-3 gap-6">
 
