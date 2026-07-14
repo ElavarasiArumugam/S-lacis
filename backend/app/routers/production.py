@@ -1,32 +1,63 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from pydantic import BaseModel
 
 from app.database import get_db
-from app.models import ProductionRecord
+from app.models import Animal
 
 router = APIRouter(
     prefix="/api/v1/production",
     tags=["Production"]
 )
 
-class ProductionCreate(BaseModel):
-    animal_id: int
-    production_type: str
-    quantity: float
-    record_date: str
 
-@router.post("/add")
-def add_production(data: ProductionCreate,
-                   db: Session = Depends(get_db)):
+@router.get("/{farm_id}")
+def production_dashboard(
+    farm_id: int,
+    db: Session = Depends(get_db)
+):
 
-    record = ProductionRecord(**data.dict())
+    animals = db.query(Animal).filter(
+        Animal.farm_id == farm_id
+    ).all()
 
-    db.add(record)
-    db.commit()
+    production = []
 
-    return {"message": "Production saved"}
+    for animal in animals:
 
-@router.get("/")
-def get_all(db: Session = Depends(get_db)):
-    return db.query(ProductionRecord).all()
+        production_type = ""
+        quantity = 0
+        unit = ""
+
+        if animal.animal_type.lower() == "cow":
+            production_type = "Milk"
+            quantity = animal.weight * 0.06
+            unit = "Litres/day"
+
+        elif animal.animal_type.lower() == "goat":
+            production_type = "Milk"
+            quantity = animal.weight * 0.04
+            unit = "Litres/day"
+
+        elif animal.animal_type.lower() == "sheep":
+            production_type = "Wool"
+            quantity = animal.weight * 0.02
+            unit = "Kg/month"
+
+        elif animal.animal_type.lower() == "poultry":
+            production_type = "Egg"
+            quantity = 1
+            unit = "Egg/day"
+
+        else:
+            production_type = "Unknown"
+
+        production.append({
+            "animal_id": animal.animal_id,
+            "production_type": production_type,
+            "quantity": round(quantity, 2),
+            "unit": unit,
+            "record_date": "Live",
+            "status": animal.status
+        })
+
+    return production
