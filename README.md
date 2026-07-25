@@ -1,8 +1,5 @@
 ````markdown
 # 🐄 S-LACIS – Smart Livestock & Animal Care Intelligence System
-
-<p align="center">
-
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
 ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?logo=fastapi)
 ![Next.js](https://img.shields.io/badge/Next.js-Frontend-black?logo=next.js)
@@ -10,7 +7,6 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791?logo=postgresql)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-Styling-38BDF8?logo=tailwind-css)
 
-</p>
 
 ---
 
