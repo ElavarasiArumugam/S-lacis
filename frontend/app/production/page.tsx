@@ -38,15 +38,17 @@ export default function ProductionPage() {
 
   const loadRecords = async () => {
 
+    if (!farmId) return;
+
     try {
 
       const res = await fetch(
-        "https://s-lacis.onrender.com/api/v1/production/"
+        `https://s-lacis.onrender.com/api/v1/production/${farmId}`
       );
 
       const data = await res.json();
 
-      setRecords(data);
+      setRecords(Array.isArray(data) ? data : []);
 
     } catch (err) {
       console.error(err);
